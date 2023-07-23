@@ -23,6 +23,7 @@ const chief = {
     },
     sql: postgres(POSTGRES_CONNECTION_URI),
     placeClient: PLACE_STATS ? new PlaceClient() : null,
+    placeCounts: [0, 0, 0, 0, 0, 0]
 };
 express.application.chief = chief;
 
@@ -67,6 +68,11 @@ if (chief.placeClient) {
         chief.stats.completion = chief.placeClient.getOrderDifference();
     }, 1000)
 }
+
+setInterval(() => {
+    chief.placeCounts.unshift(0);
+    chief.placeCounts.pop();
+}, 60_000);
 
 expressWs(app);
 app.use('/api', (await import('./api/index.js')).default);

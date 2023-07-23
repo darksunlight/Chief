@@ -1,3 +1,4 @@
+import 'dotenv/config'
 import express from 'express';
 import expressWs from 'express-ws';
 import postgres from 'postgres';

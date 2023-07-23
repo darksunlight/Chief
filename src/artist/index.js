@@ -8,7 +8,7 @@ import {
     BASE_URL,
     DISCORD_CLIENT_ID,
     DISCORD_CLIENT_SECRET,
-    DISCORD_ROLE_ID,
+    DISCORD_ROLE_IDS,
     DISCORD_SERVER_ID,
     FLAG_HAS_PRIORITY_MAPPING,
     FLAG_SHOW_CREATOR,
@@ -106,7 +106,7 @@ router.post('/order', upload.fields([{
         next();
         return;
     }
-    if (!guildData.roles.includes(DISCORD_ROLE_ID)) {
+    if (!DISCORD_ROLE_IDS.some(id => guildData.roles.includes(id))) {
         res.type('text/plain').send('You do not have the role required to push new orders.');
         next();
         return;

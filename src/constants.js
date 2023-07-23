@@ -7,7 +7,7 @@ export const PLACE_STATS = (process.env.PLACE_STATS ?? 'true') === 'true';
 export const DISCORD_CLIENT_ID = process.env.DISCORD_CLIENT_ID ?? '';
 export const DISCORD_CLIENT_SECRET = process.env.DISCORD_CLIENT_SECRET ?? '';
 export const DISCORD_SERVER_ID = process.env.DISCORD_SERVER_ID ?? '958464581699768380';
-export const DISCORD_ROLE_ID = process.env.DISCORD_ROLE_ID ?? '1089529482693591151';
+export const DISCORD_ROLE_IDS = process.env.DISCORD_ROLE_IDS?.split(',') ?? ['1089529482693591151'];
 export const FACTION_NAME = process.env.FACTION_NAME ?? 'r/placeNL';
 export const FACTION_CONTACT = process.env.FACTION_CONTACT ?? 'https://discord.placenl.nl https://github.com/PlaceNL';
 export const HTTP_PORT = process.env.HTTP_PORT ?? 3000;

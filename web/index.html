@@ -177,12 +177,12 @@
                     case 'stats':
                         document.querySelector('#connections').innerText = payload.activeConnections;
                         document.querySelector('#place-capable').innerText = payload.capabilities.place;
-                        document.querySelector('#pixels-per-minute').innerText = Math.round(payload.capabilities.place / 5);
+                        document.querySelector('#pixels-per-minute').innerText = Math.round(payload.capabilities.place / 4);
 
                         if (payload.completion) {
                             document.querySelector('#completion-stat').classList.remove('d-none');
 
-                            const timeLeft = (payload.completion.wrong && payload.capabilities.place) ? payload.completion.wrong / (payload.capabilities.place / 5) : 0;
+                            const timeLeft = (payload.completion.wrong && payload.capabilities.place) ? payload.completion.wrong / (payload.capabilities.place / 4) : 0;
                             let hoursLeft = 0;
                             let minutesLeft = 0;
                             if (timeLeft <= 0) {
